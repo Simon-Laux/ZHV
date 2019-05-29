@@ -10,7 +10,11 @@ import android.net.Uri;
 import android.widget.Toast;
 import android.widget.TextView;
 import android.support.v7.app.AppCompatActivity;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipEntry;
 
 public class OpenActivity extends AppCompatActivity {
 
@@ -54,13 +58,43 @@ public class OpenActivity extends AppCompatActivity {
     }
 
     public static String getStringFromInputStream(InputStream stream) throws IOException {
-        int n = 0;
-        char[] buffer = new char[1024 * 4];
-        InputStreamReader reader = new InputStreamReader(stream, "UTF8");
-        StringWriter writer = new StringWriter();
-        while (-1 != (n = reader.read(buffer)))
-            writer.write(buffer, 0, n);
-        return writer.toString();
+        ByteArrayOutputStream fout = new ByteArrayOutputStream();
+        if(!unpackZip(stream, fout)){
+            throw new IOException();
+        }
+        return fout.toString();
+        // int n = 0;
+        // char[] buffer = new char[1024 * 4];
+        // InputStreamReader reader = new InputStreamReader(stream, "UTF8");
+        // StringWriter writer = new StringWriter();
+        // while (-1 != (n = reader.read(buffer)))
+        //     writer.write(buffer, 0, n);
+        // return writer.toString();
+    }
+
+    private static boolean unpackZip(InputStream is, ByteArrayOutputStream fout) {
+        ZipInputStream zis;
+        try {
+            String filename;
+            zis = new ZipInputStream(new BufferedInputStream(is));
+            ZipEntry ze;
+            byte[] buffer = new byte[1024];
+            int count;
+            while ((ze = zis.getNextEntry()) != null) {
+                if (ze.isDirectory() && ze.getName() != "index.html") {
+                    continue;
+                }
+                while ((count = zis.read(buffer)) != -1) {
+                    fout.write(buffer, 0, count);
+                }
+                zis.closeEntry();
+            }
+            zis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
 }
