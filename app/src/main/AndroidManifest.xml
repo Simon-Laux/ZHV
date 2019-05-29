@@ -22,10 +22,10 @@
                 <data android:scheme="file" />
                 <data android:mimeType="*/*" />
                 <data android:mimeType="application/octet-stream" />
-                <data android:pathPattern=".*\\.zip" />
-                <data android:pathPattern=".*\\..*\\.zip" />
-                <data android:pathPattern=".*\\..*\\..*\\.zip" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\.zip" />
+                <data android:pathPattern=".*\\.html.zip" />
+                <data android:pathPattern=".*\\..*\\.html.zip" />
+                <data android:pathPattern=".*\\..*\\..*\\.html.zip" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.html.zip" />
             </intent-filter>
         </activity>
     </application>
