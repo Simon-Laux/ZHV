@@ -26,7 +26,7 @@
                 <data android:pathPattern=".*\\..*\\.html.zip" />
                 <data android:pathPattern=".*\\..*\\..*\\.html.zip" />
                 <data android:pathPattern=".*\\..*\\..*\\..*\\.html.zip" />
-		        <data android:pathPattern=".*\\.htmlzip" />
+                <data android:pathPattern=".*\\.htmlzip" />
                 <data android:pathPattern=".*\\..*\\.htmlzip" />
                 <data android:pathPattern=".*\\..*\\..*\\.htmlzip" />
                 <data android:pathPattern=".*\\..*\\..*\\..*\\.htmlzip" />

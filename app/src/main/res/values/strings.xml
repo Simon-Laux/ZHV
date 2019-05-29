@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string
-        name="could_not_open_file"
-        >could_not_open_file</string>
+    <string name="could_not_open_file">Could not open file</string>
 </resources>

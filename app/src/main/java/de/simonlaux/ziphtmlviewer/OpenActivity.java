@@ -82,7 +82,10 @@ public class OpenActivity extends AppCompatActivity {
             byte[] buffer = new byte[1024];
             int count;
             while ((ze = zis.getNextEntry()) != null) {
-                if (ze.isDirectory() && ze.getName() != "index.html") {
+                if(ze.getName() != "index.html"){
+                    continue;
+                }
+                if (ze.isDirectory()) {
                     continue;
                 }
                 while ((count = zis.read(buffer)) != -1) {
