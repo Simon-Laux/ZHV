@@ -8,13 +8,16 @@ import java.io.StringWriter;
 import java.io.IOException;
 import android.net.Uri;
 import android.widget.Toast;
-import android.widget.TextView;
+import android.webkit.WebView;
+import android.webkit.WebSettings;
+import android.webkit.WebChromeClient;
 import android.support.v7.app.AppCompatActivity;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipEntry;
+import java.util.Base64;
 
 public class OpenActivity extends AppCompatActivity {
 
@@ -49,8 +52,13 @@ public class OpenActivity extends AppCompatActivity {
             return;
         }
 
-        TextView textView = findViewById(R.id.tv_content);
-        textView.setText(text);
+        WebView myWebView = (WebView) findViewById(R.id.webview);
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setSupportZoom(true); 
+        webSettings.setBuiltInZoomControls(true);
+        myWebView.setWebChromeClient(new WebChromeClient());
+        myWebView.loadDataWithBaseURL("file://index.html", text, "text/html", null, null);
     }
 
     private void tellUserThatCouldntOpenFile() {
@@ -59,17 +67,10 @@ public class OpenActivity extends AppCompatActivity {
 
     public static String getStringFromInputStream(InputStream stream) throws IOException {
         ByteArrayOutputStream fout = new ByteArrayOutputStream();
-        if(!unpackZip(stream, fout)){
+        if (!unpackZip(stream, fout)) {
             throw new IOException();
         }
         return fout.toString();
-        // int n = 0;
-        // char[] buffer = new char[1024 * 4];
-        // InputStreamReader reader = new InputStreamReader(stream, "UTF8");
-        // StringWriter writer = new StringWriter();
-        // while (-1 != (n = reader.read(buffer)))
-        //     writer.write(buffer, 0, n);
-        // return writer.toString();
     }
 
     private static boolean unpackZip(InputStream is, ByteArrayOutputStream fout) {
