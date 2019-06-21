@@ -1,10 +1,10 @@
 package de.simonlaux.ziphtmlviewer;
 
 import android.app.Activity;
+import java.util.Objects;
+import android.util.Log;
 import android.os.Bundle;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
 import java.io.IOException;
 import android.net.Uri;
 import android.widget.Toast;
@@ -17,7 +17,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipEntry;
-import java.util.Base64;
 
 public class OpenActivity extends AppCompatActivity {
 
@@ -33,7 +32,7 @@ public class OpenActivity extends AppCompatActivity {
 
         Uri uri = getIntent().getData();
         if (uri == null) {
-            tellUserThatCouldntOpenFile();
+            tellUserThatCouldNotOpenFile();
             return;
         }
 
@@ -48,11 +47,11 @@ public class OpenActivity extends AppCompatActivity {
         }
 
         if (text == null) {
-            tellUserThatCouldntOpenFile();
+            tellUserThatCouldNotOpenFile();
             return;
         }
 
-        WebView myWebView = (WebView) findViewById(R.id.webview);
+        WebView myWebView = findViewById(R.id.webview);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setSupportZoom(true); 
@@ -61,7 +60,7 @@ public class OpenActivity extends AppCompatActivity {
         myWebView.loadDataWithBaseURL("file://index.html", text, "text/html", null, null);
     }
 
-    private void tellUserThatCouldntOpenFile() {
+    private void tellUserThatCouldNotOpenFile() {
         Toast.makeText(this, getString(R.string.could_not_open_file), Toast.LENGTH_SHORT).show();
     }
 
@@ -76,18 +75,14 @@ public class OpenActivity extends AppCompatActivity {
     private static boolean unpackZip(InputStream is, ByteArrayOutputStream fout) {
         ZipInputStream zis;
         try {
-            String filename;
             zis = new ZipInputStream(new BufferedInputStream(is));
             ZipEntry ze;
             byte[] buffer = new byte[1024];
             int count;
             while ((ze = zis.getNextEntry()) != null) {
-                if(ze.getName() != "index.html"){
-                    continue;
-                }
-                if (ze.isDirectory()) {
-                    continue;
-                }
+                if(ze.isDirectory()) continue;
+                if(!Objects.equals(ze.getName(), "index.html")) continue;
+
                 while ((count = zis.read(buffer)) != -1) {
                     fout.write(buffer, 0, count);
                 }
