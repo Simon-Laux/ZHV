@@ -30,6 +30,11 @@
                 <data android:pathPattern=".*\\..*\\.htmlzip" />
                 <data android:pathPattern=".*\\..*\\..*\\.htmlzip" />
                 <data android:pathPattern=".*\\..*\\..*\\..*\\.htmlzip" />
+                <data android:mimeType="text/html"/>
+                <data android:pathPattern=".*\\.html" />
+                <data android:pathPattern=".*\\..*\\.html" />
+                <data android:pathPattern=".*\\..*\\..*\\.html" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.html" />
             </intent-filter>
         </activity>
     </application>
