@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="de.simonlaux.ziphtmlviewer">
 
-    <application android:label="ZHV" android:theme="@style/AppTheme">
+    <application android:label="ZHV">
 
         <activity android:name=".MainActivity">
             <intent-filter>
