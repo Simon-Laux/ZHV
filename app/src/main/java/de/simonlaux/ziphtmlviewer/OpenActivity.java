@@ -2,7 +2,6 @@ package de.simonlaux.ziphtmlviewer;
 
 import android.app.Activity;
 import java.util.Objects;
-import android.util.Log;
 import android.os.Bundle;
 import java.io.InputStream;
 import java.io.IOException;
@@ -11,18 +10,23 @@ import android.widget.Toast;
 import android.webkit.WebView;
 import android.webkit.WebSettings;
 import android.webkit.WebChromeClient;
-import android.support.v7.app.AppCompatActivity;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipEntry;
 
-public class OpenActivity extends AppCompatActivity {
+public class OpenActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try
+        {
+            this.getActionBar().hide();
+        }
+        catch (NullPointerException e){}
+
         setContentView(R.layout.activity_reader);
 
         handleIntent();
