@@ -2,8 +2,9 @@
 This is an Android app.
 
 Opens files with the extention `.html.zip` or `.htmlzip` and displays their content in a webview.
+The app can also open plain html files. 
 
-It doesn't allow loading resoources from the web. Assets must be inline because it only loads from the index html file for now.
+It doesn't allow loading resources from the web. Assets must be inline because it only loads from the index html file for now.
 
 ## Zipped HTML format
 

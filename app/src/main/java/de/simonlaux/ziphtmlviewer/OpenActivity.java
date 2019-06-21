@@ -21,11 +21,10 @@ public class OpenActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try
-        {
+        try {
             this.getActionBar().hide();
+        } catch (NullPointerException e) {
         }
-        catch (NullPointerException e){}
 
         setContentView(R.layout.activity_reader);
 
@@ -43,7 +42,19 @@ public class OpenActivity extends Activity {
         String text = null;
         try {
             InputStream inputStream = getContentResolver().openInputStream(uri);
-            text = getStringFromInputStream(inputStream);
+            if (!uri.getPath().contains("zip")) {
+                // html mode
+                ByteArrayOutputStream result = new ByteArrayOutputStream();
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = inputStream.read(buffer)) != -1) {
+                    result.write(buffer, 0, length);
+                }   
+                text = result.toString();
+            } else {
+                // zip html mode
+                text = getStringFromZip(inputStream);
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -58,7 +69,7 @@ public class OpenActivity extends Activity {
         WebView myWebView = findViewById(R.id.webview);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webSettings.setSupportZoom(true); 
+        webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
         myWebView.setWebChromeClient(new WebChromeClient());
         myWebView.loadDataWithBaseURL("file://index.html", text, "text/html", null, null);
@@ -68,7 +79,7 @@ public class OpenActivity extends Activity {
         Toast.makeText(this, getString(R.string.could_not_open_file), Toast.LENGTH_SHORT).show();
     }
 
-    public static String getStringFromInputStream(InputStream stream) throws IOException {
+    public static String getStringFromZip(InputStream stream) throws IOException {
         ByteArrayOutputStream fout = new ByteArrayOutputStream();
         if (!unpackZip(stream, fout)) {
             throw new IOException();
@@ -84,8 +95,10 @@ public class OpenActivity extends Activity {
             byte[] buffer = new byte[1024];
             int count;
             while ((ze = zis.getNextEntry()) != null) {
-                if(ze.isDirectory()) continue;
-                if(!Objects.equals(ze.getName(), "index.html")) continue;
+                if (ze.isDirectory())
+                    continue;
+                if (!Objects.equals(ze.getName(), "index.html"))
+                    continue;
 
                 while ((count = zis.read(buffer)) != -1) {
                     fout.write(buffer, 0, count);
