@@ -15,6 +15,16 @@ example.html.zip
 └── index.html
 ```
 
+## Special JavaScript
+
+The app exposes the global `zhv` object, it can currently be used to check if the site was opened in ZHV and get the version code of ZHV for new functionality that may come in the future.
+
+```ts
+zhv : {
+ getVersion:()=>number
+}
+```
+
 ## Building ZHV
 Debug build:
 

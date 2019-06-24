@@ -15,6 +15,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         this.trouble = findViewById(R.id.troubleshooting);
         this.trouble.setVisibility(View.INVISIBLE);
+        TextView version_code = findViewById(R.id.version_code);
+        version_code.setText(String.valueOf(BuildConfig.VERSION_CODE));
     }
 
     public void toggleTroubleshooting(View view) {

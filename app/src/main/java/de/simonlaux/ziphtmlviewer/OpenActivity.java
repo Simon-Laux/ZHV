@@ -6,6 +6,7 @@ import android.os.Bundle;
 import java.io.InputStream;
 import java.io.IOException;
 import android.net.Uri;
+import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 import android.webkit.WebView;
 import android.webkit.WebSettings;
@@ -71,7 +72,14 @@ public class OpenActivity extends Activity {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
+        class JsObject {
+            @JavascriptInterface
+            public int getVersion() { return BuildConfig.VERSION_CODE; }
+            public String toString() { return "[ZippedHTMLViewer Object]"; }
+        }
+        myWebView.addJavascriptInterface(new JsObject(), "zhv");
         myWebView.setWebChromeClient(new WebChromeClient());
+        myWebView.loadData("", "text/html", null);
         myWebView.loadDataWithBaseURL("file://index.html", text, "text/html", null, null);
     }
 
