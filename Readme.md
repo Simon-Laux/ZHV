@@ -25,6 +25,11 @@ zhv : {
 }
 ```
 
+## Note Regarding Localstorage
+
+If you use local storage please prefix your variables with an unique prefix (your webapp name + random uuid should do it) to avoid collision with other web apps.
+Also don't use `clear()` as it clears everything for every webapp.
+
 ## Building ZHV
 Debug build:
 

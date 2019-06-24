@@ -72,6 +72,7 @@ public class OpenActivity extends Activity {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
+        webSettings.setDomStorageEnabled(true);
         class JsObject {
             @JavascriptInterface
             public int getVersion() { return BuildConfig.VERSION_CODE; }
