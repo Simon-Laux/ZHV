@@ -6,7 +6,7 @@ android {
         applicationId "de.simonlaux.ziphtmlviewer"
         // don't go bellow 19, otherwise you may introduce web-view security risks
         minSdkVersion 19
-        targetSdkVersion 26
+        targetSdkVersion 28
         versionCode 3
         versionName "1.2"
     }
