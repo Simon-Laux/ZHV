@@ -1,0 +1,143 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    padding: 12px
+}
+
+pre code {
+    display: block;
+    padding: 14px 10px
+}
+
+code {
+    padding: 2px 4px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 4px;
+}
+
+#html {
+    background: wheat;
+    color: black;
+}
+
+code {
+    background: rgb(231, 231, 231);
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid #adadad;
+}
+
+a {
+    color: blue;
+}
+
+
+/* Themes */
+
+.dark {
+    background: #181a1b;
+    color: white;
+
+    code {
+        background: #25252c;
+        color: #ffbb1a;
+    }
+
+    a {
+        color: #6cd6ff;
+    }
+
+    hr {
+        border-bottom-color: #484848
+    }
+
+    th,
+    td {
+        border-color: #7d7d7d;
+    }
+}
+
+.warm {
+    background: #ffca4d;
+    color: black;
+
+    code {
+        background: #ffd972;
+        color: #8406d8;
+    }
+
+    a {
+        color: #2713b2;
+    }
+
+    hr {
+        border-bottom-color: #c3a941
+    }
+
+    th,
+    td {
+        border-color: #b37e3b;
+    }
+}
+
+.hacker {
+    background: #000000;
+    color: #4bf81b;
+
+    code {
+        background: #171717;
+        color: #f6d93c;
+    }
+
+    a {
+        color: #fbff04;
+    }
+
+    hr {
+        border-bottom-color: #484848
+    }
+
+    th,
+    td {
+        border-color: #082700;
+    }
+
+}
+
+.cyber {
+    background: #8200b6;
+    color: #ff5cff;
+    text-shadow: 2px 2px #6969c8;
+
+    code {
+        background: #7e04e2;
+        color: #ffee04;
+    }
+
+    a {
+        color: #7dff04;
+    }
+
+    hr {
+        border-bottom-color: #484848
+    }
+
+    th,
+    td {
+        border-color: white;
+    }
+}
