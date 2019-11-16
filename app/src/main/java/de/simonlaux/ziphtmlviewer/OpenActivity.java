@@ -41,17 +41,22 @@ public class OpenActivity extends Activity {
         }
 
         String text = null;
+        Boolean isMarkdown = false;
         try {
             InputStream inputStream = getContentResolver().openInputStream(uri);
             if (!uri.getPath().contains("zip")) {
-                // html mode
+                // load file into memory (html or markdown)
                 ByteArrayOutputStream result = new ByteArrayOutputStream();
                 byte[] buffer = new byte[1024];
                 int length;
                 while ((length = inputStream.read(buffer)) != -1) {
                     result.write(buffer, 0, length);
-                }   
+                }      
                 text = result.toString();
+                if(uri.getPath().contains("md")){ 
+                    // markdown mode
+                    isMarkdown = true;
+                }
             } else {
                 // zip html mode
                 text = getStringFromZip(inputStream);
@@ -73,15 +78,35 @@ public class OpenActivity extends Activity {
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
         webSettings.setDomStorageEnabled(true);
+        
+        // myWebView.setWebContentsDebuggingEnabled(true);
+
+        final Boolean isMarkdownReader = isMarkdown;
+        final String contentText = text;
         class JsObject {
             @JavascriptInterface
             public int getVersion() { return BuildConfig.VERSION_CODE; }
+            @JavascriptInterface
             public String toString() { return "[ZippedHTMLViewer Object]"; }
+            @JavascriptInterface
+            public String getMarkdown() { 
+                if(isMarkdownReader){
+                    return contentText;
+                } else {
+                    return "";
+                }
+            }
         }
         myWebView.addJavascriptInterface(new JsObject(), "zhv");
         myWebView.setWebChromeClient(new WebChromeClient());
         myWebView.loadData("", "text/html", null);
-        myWebView.loadDataWithBaseURL("file://index.html", text, "text/html", null, null);
+        if(isMarkdown){ 
+            // markdown mode
+            myWebView.loadUrl("file:///android_asset/markdown-reader.html");
+        } else {
+            // html mode
+            myWebView.loadDataWithBaseURL("file://index.html", contentText, "text/html", null, null);
+        }
     }
 
     private void tellUserThatCouldNotOpenFile() {
