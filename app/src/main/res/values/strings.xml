@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="usage_description">Open compressed HTML Files (\'.html.zip\' or \'.htmlzip\') or normal html files with this app</string>
+    <string name="usage_description">Open compressed HTML Files (\'.html.zip\' or \'.htmlzip\'), normal html or markdown(.md) files with this app</string>
     <string name="troubleshooting_btn">Problems?</string>
     <string name="troubleshooting">When you have problems: \n 1. Install and Update the WebView app or Chrome \n 2. If the problem persists please open an issue on https://github.com/Simon-Laux/ZHV/issues</string>
     <string name="sources">https://github.com/Simon-Laux/ZHV</string>
