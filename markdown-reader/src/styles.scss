@@ -81,7 +81,7 @@ a {
     }
 
     a {
-        color: #2713b2;
+        color: #4335a8;
     }
 
     hr {
@@ -119,17 +119,20 @@ a {
 }
 
 .cyber {
-    background: #8200b6;
+    background: #5246d6;
     color: #ff5cff;
-    text-shadow: 2px 2px #6969c8;
+    text-shadow: 2px 2px #5172f1;
+    font-family: 'Courier New', Courier, monospace;
 
     code {
         background: #7e04e2;
         color: #ffee04;
+        font-weight: bold;
     }
 
     a {
         color: #7dff04;
+        text-decoration: underline 1px #a796ff dotted;
     }
 
     hr {
@@ -138,6 +141,6 @@ a {
 
     th,
     td {
-        border-color: white;
+        border-color: #a796ff;
     }
 }
