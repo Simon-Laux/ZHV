@@ -36,6 +36,11 @@
                 <data android:pathPattern=".*\\..*\\.html" />
                 <data android:pathPattern=".*\\..*\\..*\\.html" />
                 <data android:pathPattern=".*\\..*\\..*\\..*\\.html" />
+                <data android:mimeType="text/markdown"/>
+                <data android:pathPattern=".*\\.md" />
+                <data android:pathPattern=".*\\..*\\.md" />
+                <data android:pathPattern=".*\\..*\\..*\\.md" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.md" />
             </intent-filter>
         </activity>
     </application>

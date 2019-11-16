@@ -4,10 +4,9 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack && node copy2androidproject"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^5.0.5",
     "css-loader": "^3.2.0",
     "html-webpack-inline-source-plugin": "0.0.10",
     "html-webpack-plugin": "^3.2.0",
@@ -19,6 +18,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "fs-extra": "^8.1.0",
     "marked": "^0.7.0"
   }
 }
