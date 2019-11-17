@@ -11,6 +11,7 @@ const Themes = [
     ["dark theme", "dark"],
     ["hacker theme", "hacker"],
     ["cyber theme", "cyber"],
+    ["retro theme", "retro"],
 ]
 
 const ThemeManager = document.createElement("select")
