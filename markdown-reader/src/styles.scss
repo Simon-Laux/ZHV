@@ -10,7 +10,8 @@ body {
 
 pre code {
     display: block;
-    padding: 14px 10px
+    padding: 14px 10px;
+    overflow-x: scroll;
 }
 
 code {
