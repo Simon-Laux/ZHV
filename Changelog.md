@@ -1,12 +1,13 @@
 # Changelog
 
-## 1.5.0
+## Unreleased 1.5.0
 Version code **7**
 
 - Title in the action bar
 - Search bar
 - On long click on a image it redirect to a bot
 - Save the progress on the page in rotations
+- Add retro style
 
 ## 1.4.0 
 Version code **6**
