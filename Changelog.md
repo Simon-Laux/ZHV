@@ -1,6 +1,12 @@
 # Changelog
 
 
+## Unreleased
+Version code **7**
+
+- associate zhv with zip mime type
+- Add retro style
+
 ## 1.4.0 
 Version code **6**
 
