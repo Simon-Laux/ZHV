@@ -1,6 +1,8 @@
 # Changelog
 
-## Unreleased 1.5.0
+## Unreleased
+
+## 1.5.0
 Version code **7**
 
 - Title in the action bar
