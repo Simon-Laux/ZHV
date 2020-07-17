@@ -219,7 +219,7 @@ public class OpenActivity extends Activity implements View.OnClickListener {
         WebView.HitTestResult hitTestResult = myWebView.getHitTestResult();
         if (hitTestResult.getType() == WebView.HitTestResult.IMAGE_TYPE) {
             Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.putExtra(Intent.EXTRA_EMAIL, "simplebot@sistemli.org");
+            intent.putExtra(Intent.EXTRA_EMAIL, "");
             intent.putExtra(Intent.EXTRA_HTML_TEXT, "/web " + hitTestResult.getExtra());
             intent.putExtra(Intent.EXTRA_TEXT, "/web " + hitTestResult.getExtra());
             intent.setType("text/html");
