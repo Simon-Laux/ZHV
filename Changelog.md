@@ -8,6 +8,7 @@ Version code **7**
 - On long click on a image it redirect to a bot
 - Save the progress on the page in rotations
 - Add retro style
+- improve file type detection logic
 
 ## 1.4.0 
 Version code **6**
