@@ -5,4 +5,6 @@
     <string name="troubleshooting">When you have problems: \n 1. Install and Update the WebView app or Chrome \n 2. If the problem persists please open an issue on https://github.com/Simon-Laux/ZHV/issues</string>
     <string name="sources">https://github.com/Simon-Laux/ZHV</string>
     <string name="could_not_open_file">Could not open file</string>
+    <string name="open_delta">Open with Delta Chat</string>
+    <string name="image_click_explain">Make a long click for copy Image link</string>
 </resources>
