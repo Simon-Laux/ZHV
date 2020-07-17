@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:showAsAction="always"
+        android:title="@android:string/search_go"
+        android:actionViewClass="android.widget.SearchView"
+        android:id="@+id/search_menu_item"/>
+</menu>
