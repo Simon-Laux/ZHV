@@ -1,5 +1,7 @@
 # Changelog
 
+## Unreleased
+
 ## 1.5.0
 Version code **7**
 
@@ -7,6 +9,8 @@ Version code **7**
 - Search bar
 - On long click on a image it redirect to a bot
 - Save the progress on the page in rotations
+- Add retro style
+- improve file type detection logic
 
 ## 1.4.0 
 Version code **6**

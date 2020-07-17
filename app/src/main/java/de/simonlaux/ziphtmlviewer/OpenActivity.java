@@ -133,7 +133,11 @@ public class OpenActivity extends Activity implements View.OnClickListener {
         try {
             InputStream inputStream = getContentResolver().openInputStream(uri);
             if (uri.getPath() != null) {
-                if (!uri.getPath().contains("zip")) {
+                String path = uri.getPath();
+                if (path.endsWith(".html.zip") || path.endsWith(".htmlzip")) {
+                    // zip html mode
+                    text = getStringFromZip(inputStream);
+                } else {
                     // load file into memory (html or markdown)
                     ByteArrayOutputStream result = new ByteArrayOutputStream();
                     byte[] buffer = new byte[1024];
@@ -142,13 +146,10 @@ public class OpenActivity extends Activity implements View.OnClickListener {
                         result.write(buffer, 0, length);
                     }
                     text = result.toString();
-                    if (uri.getPath().contains("md")) {
+                    if (path.endsWith(".md")) {
                         // markdown mode
                         isMarkdown = true;
                     }
-                } else {
-                    // zip html mode
-                    text = getStringFromZip(inputStream);
                 }
             }
         } catch (IOException e) {
