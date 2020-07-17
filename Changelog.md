@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.0
+Version code **7**
+
+- Title in the action bar
+- Search bar
+- On long click on a image it redirect to a bot
 
 ## 1.4.0 
 Version code **6**
