@@ -1,6 +1,11 @@
 # Changelog
 
 ## Unreleased
+## 1.5.1
+Version code **8**
+- Fixed some bugs in search
+- Fixed rotation on MD file not working
+- Removed on long click image to bot
 
 ## 1.5.0
 Version code **7**
