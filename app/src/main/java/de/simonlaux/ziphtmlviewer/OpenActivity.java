@@ -253,7 +253,7 @@ public class OpenActivity extends Activity implements View.OnClickListener {
         }
 
         @JavascriptInterface
-        public int getVersion() { return 15; }
+        public int getVersion() { return BuildConfig.VERSION_CODE; }
         @JavascriptInterface
         public String toString() { return "[ZippedHTMLViewer Object]"; }
         @JavascriptInterface
