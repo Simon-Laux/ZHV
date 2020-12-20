@@ -17,6 +17,12 @@ Version code **7**
 - Add retro style
 - improve file type detection logic
 
+## Unreleased
+Version code **7**
+
+- associate zhv with zip mime type
+- Add retro style
+
 ## 1.4.0 
 Version code **6**
 
